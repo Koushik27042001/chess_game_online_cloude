@@ -1,0 +1,12 @@
+{
+  "name": "chess-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Knightline — multiplayer chess with ratings and analysis",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "echo Run 'npm run server' and 'npm run client' in two terminals"
+  }
+}

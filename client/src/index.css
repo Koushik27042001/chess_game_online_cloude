@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --ink: #121a17;
+  --moss: #4f7d5c;
+  --oak: #c19a6b;
+  --ivory: #f3efe6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: #0c1210;
+  color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2f4f39;
+  border-radius: 999px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-oak-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-moss-600 text-ivory hover:bg-moss-500;
+  }
+
+  .btn-secondary {
+    @apply btn border border-oak-400/40 bg-ink-800 text-ivory hover:border-oak-300 hover:bg-ink-700;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-900/80 text-red-100 hover:bg-red-800;
+  }
+
+  .panel {
+    @apply rounded-xl border border-white/10 bg-ink-800/80 backdrop-blur;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-white/10 bg-ink-900 px-3 py-2.5 text-ivory placeholder:text-white/35 focus:border-moss-500 focus:outline-none focus:ring-1 focus:ring-moss-500;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm text-white/70;
+  }
+
+  .board-shell {
+    @apply relative;
+  }
+
+  .board-frame {
+    @apply rounded-2xl bg-gradient-to-br from-oak-400/80 via-oak-500 to-moss-700 p-2 shadow-board sm:p-3;
+    animation: rise 0.55s ease both;
+  }
+
+  .player-bar {
+    @apply panel flex items-center justify-between gap-3 px-3 py-2 transition;
+  }
+
+  .player-bar-active {
+    @apply ring-1 ring-moss-400;
+    animation: pulseRing 1.8s ease-out infinite;
+  }
+}
